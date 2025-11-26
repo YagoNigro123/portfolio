@@ -1,0 +1,58 @@
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  z-index: 50;
+}
+
+.primary-navigation {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #111111;
+  letter-spacing: 0.02em;
+}
+
+.nav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #444444;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.nav-link:hover {
+  color: #111111;
+  border-bottom: 1px solid #111111;
+}
+
+.nav-link--cta {
+  border: 1px solid #111111;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+}
+
+.nav-link--cta:hover {
+  background: #111111;
+  color: #ffffff;
+}
