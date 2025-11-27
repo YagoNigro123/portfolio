@@ -10,6 +10,7 @@ export default defineConfig([
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
+      "react-app",
       js.configs.recommended,
       tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
@@ -19,5 +20,8 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      "react/react-in-jsx-scope": "off"
+    }
   },
 ])
