@@ -1,22 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.css'
-import { Moon, Sun } from "lucide-react";
+import ThemeToggle from "../ui/ThemeToggle";
 
-const Navbar = () => {
-    const [darkMode,setDarkMode] = useState(()=>{
-        return localStorage.getItem('theme') === 'dark'
-    })
-
-    useEffect(()=>{
-        if(darkMode){
-            document.documentElement.classList.add('dark')
-            localStorage.setItem('theme','dark')
-        }else{
-            document.documentElement.classList.remove('dark')
-            localStorage.setItem('theme','light')
-        }
-    }, [darkMode])
-
+export default function Navbar() {
     return(
         <header className='site-header header-border'>
             <nav className='primary-navigation nav-container'>
@@ -24,9 +10,7 @@ const Navbar = () => {
                     YN
                 </span>
                 <ul className='nav-list'>
-                    <button className='nav-item theme-toggle' onClick={() => setDarkMode(!darkMode)}>
-                        {darkMode ? <Sun size={20}/> : <Moon size={20}/>}
-                    </button>
+                    <ThemeToggle/>
                     <li className='nav-item'>
                         <a href="#about" className='nav-link'>About me</a>
                     </li>
@@ -41,10 +25,7 @@ const Navbar = () => {
                     </li>
                     
                 </ul>
-                
             </nav>
         </header>
     );
 };
-
-export default Navbar;

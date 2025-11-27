@@ -1,6 +1,7 @@
 *{
     font-family: 'Work Sans', sans-serif;
 }
+/*Modo obscuro*/
 .theme-toggle {
   font-size: 1rem;
   background: none;
@@ -49,4 +50,109 @@ html.dark .nav-link--cta:hover {
 
 html.dark .theme-toggle {
   color: #ffffff;
+}
+/*Container de elementos*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;  
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/*Menu hamburgesa para movil*/
+@media (max-width: 768px) {
+  .nav-list{
+    display: none !important;
+  }
+  .nav-link{
+    text-decoration: none;
+  }
+  .nav-item{
+    color: white;
+  }
+  .mobile-hamburger {
+    position: fixed;
+    right: 1.5rem;
+    top: .7rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #000;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    cursor: pointer;
+  }
+
+  .mobile-hamburger span {
+    position: absolute;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    transition: 0.4s ease;
+  }
+
+  .mobile-hamburger span:nth-child(1) {
+    transform: translateY(-6px);
+  }
+
+  .mobile-hamburger span:nth-child(2) {
+    transform: translateY(6px);
+  }
+
+  .mobile-hamburger.open span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .mobile-hamburger.open span:nth-child(2) {
+    transform: rotate(-45deg);
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.93);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-menu-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .mobile-menu-links a {
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.4s ease;
+  }
+
+  .mobile-menu-overlay.show .mobile-menu-links a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-hamburger,
+  .mobile-menu-overlay {
+    display: none !important;
+  }
 }
