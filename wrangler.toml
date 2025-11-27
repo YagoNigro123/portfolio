@@ -1,0 +1,7 @@
+name = "portfolio"
+type = "javascript"
+compatibility_date = "2025-11-27"
+
+[site]
+bucket = "./dist"
+entry-point = "."
