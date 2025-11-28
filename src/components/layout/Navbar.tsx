@@ -6,9 +6,9 @@ export default function Navbar() {
     return(
         <header className='site-header header-border'>
             <nav className='primary-navigation nav-container'>
-                <span className='brand-name brand-text'>
+                <a className='brand-name brand-text' href="#hero">
                     YN
-                </span>
+                </a>
                 <ul className='nav-list'>
                     <li className='nav-item'>
                         <a href="#about" className='nav-link'>About me</a>

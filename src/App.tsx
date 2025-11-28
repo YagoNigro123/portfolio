@@ -4,7 +4,7 @@ import Hero from './sections/Hero.tsx'
 // import About from './sections/About.tsx'
 import SkillsAndProjects from './components/ui/skills-orbit/OrbitWithProjectts.tsx'
 // import Contact from './sections/Contact.tsx'
-// import Footer from './components/layout/Footer.tsx'
+import Footer from './components/layout/Footer.tsx'
 import './index.css'
 
 function App() {
@@ -15,8 +15,8 @@ function App() {
       <Hero />
       {/* <About /> */}
       <SkillsAndProjects />
-      {/* <Contact />
-      <Footer /> */}
+      {/* <Contact /> */}
+      <Footer />
     </>
   )
 }
