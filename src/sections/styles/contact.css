@@ -1,11 +1,10 @@
-/* Sección general */
-
 .contact-section {
   max-width: 680px;
   margin: 0 auto;
   padding: 4rem 1.5rem 4.5rem;
   color: #ffffff;
   text-align: center;
+  width: 70%;
 }
 
 .contact-header {
@@ -33,8 +32,6 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* Mensajes de feedback */
-
 .contact-msg {
   font-size: 0.85rem;
   padding: 0.65rem 0.9rem;
@@ -55,12 +52,10 @@
   background: rgba(40, 8, 12, 0.97);
 }
 
-/* FORM: caja más gordita, centrada, con halo blanco */
-
 .contact-form-shell {
   background: #02030a;
   border-radius: 18px;
-  padding: 1.5px; /* borde glow */
+  padding: 1.5px;
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.18),
     0 0 34px rgba(255, 255, 255, 0.16);
@@ -76,14 +71,13 @@
   gap: 1rem;
 }
 
-/* Campos */
-
 .contact-field {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  text-align: left; /* para que label+input no queden centrados raro */
+  text-align: left;
 }
+
 
 .contact-label {
   font-size: 0.9rem;
@@ -124,8 +118,6 @@
   min-height: 140px;
 }
 
-/* Botón – más grande y gordito */
-
 .contact-submit {
   margin-top: 0.9rem;
   align-self: center;
@@ -157,9 +149,29 @@
   transform: none;
 }
 
+.contact-field--captcha {
+  align-items: stretch;
+}
+
+.contact-captcha {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Ajuste extra para pantallas muy chicas */
+@media (max-width: 420px) {
+  .contact-captcha {
+    transform: scale(0.9);
+    transform-origin: top center;
+    overflow: hidden;
+    height: 60px; 
+  }
+}
+
 /* Responsive */
 
-@media (max-width: 640px) {
+@media (max-width: 680px) {
   .contact-section {
     padding-inline: 1.2rem;
   }
