@@ -106,19 +106,16 @@ export const Contact: React.FC = () => {
 
     const newErrors: FormErrors = {};
 
-    // Email con dominio "realista" (algo@algo.algo)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     if (!emailRegex.test(email)) {
       newErrors.email = "Ingresá un email con un dominio válido.";
     }
 
-    // LinkedIn opcional, pero si está, tiene que ser de LinkedIn
     const linkedinRegex = /^https?:\/\/(www\.)?linkedin\.com\/.+/i;
     if (linkedin && !linkedinRegex.test(linkedin)) {
       newErrors.linkedin = "Solo se permiten URLs de LinkedIn.";
     }
 
-    // Turnstile obligatorio
     if (!captchaToken) {
       newErrors.captcha = "Tenés que completar el captcha.";
     }
@@ -148,7 +145,6 @@ export const Contact: React.FC = () => {
       setStatus("sending");
       setErrors({});
 
-      // Mandamos también el token del captcha como campo oculto
       if (!formRef.current.querySelector('input[name="cf_turnstile_token"]')) {
         const hidden = document.createElement("input");
         hidden.type = "hidden";
