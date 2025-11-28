@@ -1,5 +1,6 @@
-*{
+html{
     font-family: 'Work Sans', sans-serif;
+    scroll-behavior: smooth;
 }
 /*Container de elementos*/
 .container {
