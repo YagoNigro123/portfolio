@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.css'
-import ThemeToggle from "../ui/ThemeToggle";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -18,10 +17,8 @@ export default function MobileMenu() {
 
       <div className={`mobile-menu-overlay ${open ? "show" : ""}`}>
         <nav className="mobile-menu-links">
-          <ThemeToggle/>
-          <a onClick={() => setOpen(false)} href="#home">Inicio</a>
-          <a onClick={() => setOpen(false)} href="#about">Sobre mí</a>
-          <a onClick={() => setOpen(false)} href="#projects">Proyectos</a>
+          <a onClick={() => setOpen(false)} href="#about">About me</a>
+          <a onClick={() => setOpen(false)} href="##skills-projects">Skills&Projects</a>
           <a onClick={() => setOpen(false)} href="#contact">Contacto</a>
         </nav>
       </div>

@@ -10,15 +10,11 @@ export default function Navbar() {
                     YN
                 </span>
                 <ul className='nav-list'>
-                    <ThemeToggle/>
                     <li className='nav-item'>
                         <a href="#about" className='nav-link'>About me</a>
                     </li>
                     <li className='nav-item'>
-                        <a href="#skills" className='nav-link'>Skills</a>
-                    </li>
-                    <li className='nav-item'>
-                        <a href="#projects" className='nav-link'>Projects</a>
+                        <a href="#skills-projects" className='nav-link'>Skills&Projects</a>
                     </li>
                     <li className='nav-item nav-item--highlight'>
                         <a href="#contact" className='nav-link nav-link--cta'>Contact</a>
