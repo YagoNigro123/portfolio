@@ -1,32 +1,16 @@
 [
   {
+    "id": "proj-starflux-portfolio",
+    "name": "Starflux empresa de consultoria IT",
+    "description": "Landing page minimalista para Starflux con React + Vite.",
+    "skills": ["react", "js", "html", "css"],
+    "url": "https://starflux.dev"
+  },
+  {
     "id": "proj-go-api",
-    "name": "Go REST API",
-    "description": "API ultra minimalista con Go + Fiber.",
-    "skills": ["go"]
-  },
-  {
-    "id": "proj-go-worker",
-    "name": "Go Background Worker",
-    "description": "Worker de colas para tareas en segundo plano.",
-    "skills": ["go"]
-  },
-  {
-    "id": "proj-node-redismq",
-    "name": "Node Microservice",
-    "description": "Microservicio con Node.js + Redis.",
-    "skills": ["node"]
-  },
-  {
-    "id": "proj-express-dashboard",
-    "name": "Express Dashboard",
-    "description": "Dashboard admin con Express + SSR.",
-    "skills": ["express", "html", "css"]
-  },
-  {
-    "id": "proj-js-effects",
-    "name": "JavaScript Animations",
-    "description": "Micro librería de animaciones vanilla JS.",
-    "skills": ["js"]
+    "name": "Anterior porfolio",
+    "description": "Aplicación completa con Node.js, Express, Handlebars y una API de contacto funcional impulsada por Nodemailer.",
+    "skills": ["html","js","css","react","rel", "db"],
+    "url": "https://github.com/YagoNigro123/Proyecto_Porfolio_Diplomatura"
   }
 ]

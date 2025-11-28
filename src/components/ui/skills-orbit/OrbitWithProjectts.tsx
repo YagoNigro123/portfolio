@@ -9,6 +9,7 @@ type Project = {
   name: string;
   description: string;
   skills: SkillId[];
+  url: string;
 };
 
 const projects: Project[] = rawProjects as Project[];
@@ -142,15 +143,22 @@ export default function OrbitHeroWithProjects() {
               onMouseEnter={() => handleProjectEnter(p)}
               onMouseLeave={handleProjectLeave}
             >
-              <h3>{p.name}</h3>
-              <p>{p.description}</p>
-              <div className="project-skills">
-                {p.skills.map((s) => (
-                  <span key={s} className="project-skill-pill">
-                    {s.toUpperCase()}
-                  </span>
-                ))}
-              </div>
+              <a
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-card-link"
+              >
+                <h3>{p.name}</h3>
+                <p>{p.description}</p>
+                <div className="project-skills">
+                  {p.skills.map((s) => (
+                    <span key={s} className="project-skill-pill">
+                      {s.toUpperCase()}
+                    </span>
+                  ))}
+                </div>
+              </a>
             </article>
           ))}
         </div>
