@@ -1,0 +1,99 @@
+.projects-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 0.9rem;
+}
+
+/* layout de la lista */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* tarjeta más plana y minimal */
+.project-card {
+  position: relative;
+  background: rgba(8, 9, 14, 0.7);
+  border-radius: 12px;
+  padding: 0.8rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* casi sin sombra */
+}
+
+/* sutil highlight en hover */
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid transparent;
+  background: radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.12),
+      transparent 55%
+    )
+    border-box;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.project-card:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(10, 12, 20, 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+/* título + descripción */
+.project-card h3 {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.project-card p {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.67);
+}
+
+/* lista de skills */
+.project-skills {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+/* pills más minimalistas */
+.project-skill-pill {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ligero cambio en hover del card que afecta a las pills */
+.project-card:hover .project-skill-pill {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+}

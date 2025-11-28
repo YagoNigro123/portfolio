@@ -1,0 +1,271 @@
+/* HERO: fondo + tilt */
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+  padding: 4rem clamp(2rem, 6vw, 5rem);
+  min-height: 100vh;
+  box-sizing: border-box;
+  
+}
+
+.hero-layout-orbit {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-layout-projects {
+  color: #fff;
+}
+
+/* Órbita general */
+.skills-orbit {
+  position: relative;
+  width: 460px;
+  height: 460px;
+  z-index: 1;
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y))
+    scale(var(--tilt-zoom));
+  transition: transform 0.25s ease-out;
+}
+
+/* Anillos */
+.orbit-ring {
+  position: absolute;
+  inset: 90px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  opacity: 0.7;
+  animation: orbit-spin 24s linear infinite;
+  transform-origin: center;
+}
+
+.orbit-ring-soft {
+  position: absolute;
+  inset: 78px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 0 24px rgba(160, 190, 255, 0.35),
+    0 0 48px rgba(120, 255, 250, 0.18);
+  opacity: 0.5;
+  animation: orbit-spin-soft 36s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-spin-soft {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Items de la órbita */
+.orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: rotate(var(--angle)) translateX(var(--radius))
+    rotate(calc(-1 * var(--angle)));
+  transform-origin: center;
+}
+
+
+/* Contenido del ítem */
+.orbit-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: orbit-bob 4.5s ease-in-out infinite;
+  animation-delay: var(--bob-delay);
+}
+
+@keyframes orbit-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Línea hacia el centro */
+.orbit-connector {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 90px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.45),
+    rgba(255, 255, 255, 0)
+  );
+  transform: translate(-50%, -50%) translateY(-46px);
+  opacity: 0.9;
+  z-index: 1;
+}
+
+/* Glow detrás del icono */
+.orbit-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.75) 0,
+    rgba(255, 255, 255, 0.15) 40%,
+    rgba(255, 255, 255, 0) 75%
+  );
+  filter: blur(1px);
+  z-index: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.8;
+}
+
+/* Iconos */
+.orbit-icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+/* Labels */
+.orbit-label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  transform: translateY(4px);
+  transition: color 0.25s ease, opacity 0.25s ease;
+  opacity: 0.9;
+}
+
+/* Tooltip proyecto */
+.orbit-project-tag {
+  position: absolute;
+  top: -42px;
+  left: 110%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 3;
+}
+
+.orbit-project-tag-arrow {
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  border-radius: 2px;
+  background: rgba(15, 16, 24, 0.95);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.orbit-project-tag-body {
+  min-width: 140px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(15, 16, 24, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.orbit-project-tag-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.orbit-project-tag-name {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Hover extra */
+.orbit-item:hover .orbit-icon {
+  transform: scale(1.12);
+  filter:
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 0 18px rgba(160, 210, 255, 0.7));
+}
+
+.orbit-item:hover .orbit-dot {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.orbit-item:hover .orbit-label {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* Responsive para hero */
+@media (max-width: 960px) {
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .hero-layout-orbit {
+    justify-content: center;
+    order: -1;
+  }
+
+  .skills-orbit {
+    width: 340px;
+    height: 340px;
+  }
+
+  .orbit-ring {
+    inset: 70px;
+  }
+
+  .orbit-ring-soft {
+    inset: 62px;
+  }
+
+  .orbit-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .orbit-dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  .orbit-project-tag {
+    left: 100%;
+    top: -36px;
+  }
+
+  .orbit-project-tag-body {
+    min-width: 120px;
+  }
+}
