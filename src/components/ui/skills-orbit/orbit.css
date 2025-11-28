@@ -20,8 +20,8 @@
 
 .skills-orbit {
   position: relative;
-  width: 460px;
-  height: 460px;
+  width: clamp(260px, 52vw, 460px);
+  height: clamp(260px, 52vw, 460px);
   z-index: 1;
   transform-style: preserve-3d;
   transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y))
@@ -29,9 +29,10 @@
   transition: transform 0.25s ease-out;
 }
 
+
 .orbit-ring {
   position: absolute;
-  inset: 90px;
+  inset: 19%;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.22);
   opacity: 0.7;
@@ -41,7 +42,7 @@
 
 .orbit-ring-soft {
   position: absolute;
-  inset: 78px;
+  inset: 17%;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
@@ -162,6 +163,7 @@
   z-index: 3;
 }
 
+
 .orbit-project-tag-arrow {
   width: 10px;
   height: 10px;
@@ -224,17 +226,37 @@
     order: -1;
   }
 
+  .orbit-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .orbit-dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  .orbit-project-tag {
+    display: none;
+  }
+  
+  .orbit-project-tag-body {
+    min-width: 120px;
+  }
+
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .hero-layout-orbit {
+    justify-content: center;
+    order: -1;
+  }
+
   .skills-orbit {
-    width: 340px;
-    height: 340px;
-  }
-
-  .orbit-ring {
-    inset: 70px;
-  }
-
-  .orbit-ring-soft {
-    inset: 62px;
+    width: clamp(240px, 70vw, 360px);
+    height: clamp(240px, 70vw, 360px);
   }
 
   .orbit-icon {
@@ -248,11 +270,6 @@
   }
 
   .orbit-project-tag {
-    left: 100%;
-    top: -36px;
-  }
-
-  .orbit-project-tag-body {
-    min-width: 120px;
+    display: none;
   }
 }
