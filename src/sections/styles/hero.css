@@ -61,7 +61,7 @@
   position: relative;
   margin-top: 0.5rem;
   height: 0.18rem;
-  width: 25rem; 
+  width: 95%; 
 }
 
 .hero-underline::before {
@@ -175,7 +175,7 @@
   }
 
   .hero-underline {
-    width: 7.5rem;
+    width: 16rem;
   }
 
   .hero-subtitle {
