@@ -124,7 +124,7 @@ export default function OrbitHeroWithProjects() {
             <OrbitItem
               key={cfg.id}
               config={cfg}
-              isHighlighted={highlightSkillIds.includes(cfg.id)}   // 👈 si este skill está en el proyecto
+              isHighlighted={highlightSkillIds.includes(cfg.id)}
               highlightedProjectName={highlightedProjectName}
             />
           ))}
