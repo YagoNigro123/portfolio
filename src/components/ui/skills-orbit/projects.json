@@ -1,0 +1,16 @@
+[
+  {
+    "id": "proj-starflux-portfolio",
+    "name": "Starflux empresa de consultoria IT",
+    "description": "Landing page minimalista para Starflux con React + Vite.",
+    "skills": ["react", "js", "html", "css"],
+    "url": "https://starflux.dev"
+  },
+  {
+    "id": "proj-go-api",
+    "name": "Anterior porfolio",
+    "description": "Aplicación completa con Node.js, Express, Handlebars y una API de contacto funcional impulsada por Nodemailer.",
+    "skills": ["html","js","css","react","rel", "db"],
+    "url": "https://github.com/YagoNigro123/Proyecto_Porfolio_Diplomatura"
+  }
+]

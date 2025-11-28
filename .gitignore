@@ -8,4 +8,6 @@ pnpm-debug.log*
 dist/
 
 .env
-.env.*
+.env.**.Identifier
+*.txt
+src/normalize.css:Zone.Identifier
