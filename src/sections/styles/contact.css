@@ -1,0 +1,170 @@
+/* Sección general */
+
+.contact-section {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 4.5rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.contact-header {
+  margin-bottom: 2rem;
+}
+
+.contact-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 0.5rem;
+}
+
+.contact-title {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.contact-subtitle {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mensajes de feedback */
+
+.contact-msg {
+  font-size: 0.85rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  border: 1px solid;
+}
+
+.contact-msg--success {
+  border-color: rgba(170, 255, 200, 0.7);
+  color: rgba(203, 255, 224, 0.94);
+  background: rgba(12, 32, 18, 0.96);
+}
+
+.contact-msg--error {
+  border-color: rgba(255, 160, 160, 0.75);
+  color: rgba(255, 220, 220, 0.96);
+  background: rgba(40, 8, 12, 0.97);
+}
+
+/* FORM: caja más gordita, centrada, con halo blanco */
+
+.contact-form-shell {
+  background: #02030a;
+  border-radius: 18px;
+  padding: 1.5px; /* borde glow */
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.18),
+    0 0 34px rgba(255, 255, 255, 0.16);
+  margin: 0 auto;
+}
+
+.contact-form {
+  background: #050509;
+  border-radius: 16px;
+  padding: 1.6rem 1.4rem 1.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Campos */
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: left; /* para que label+input no queden centrados raro */
+}
+
+.contact-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.contact-input {
+  font-size: 0.9rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #02030a;
+  color: #ffffff;
+  outline: none;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.16),
+    0 0 26px rgba(255, 255, 255, 0.08);
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    background 0.16s ease;
+}
+
+.contact-input::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.contact-input:focus {
+  background: #050509;
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 1),
+    0 0 36px rgba(255, 255, 255, 0.42);
+}
+
+.contact-textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* Botón – más grande y gordito */
+
+.contact-submit {
+  margin-top: 0.9rem;
+  align-self: center;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 0.8rem 2.3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.7),
+    0 0 28px rgba(255, 255, 255, 0.3);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.contact-submit:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.contact-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+  .contact-section {
+    padding-inline: 1.2rem;
+  }
+
+  .contact-form {
+    padding: 1.4rem 1.1rem 1.5rem;
+  }
+}
