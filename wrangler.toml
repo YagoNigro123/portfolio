@@ -1,7 +1,5 @@
 name = "portfolio"
-type = "javascript"
-compatibility_date = "2025-11-27"
+compatibility_date = "2025-11-23"
 
-[site]
-bucket = "./dist"
-entry-point = "."
+[assets]
+directory = "./dist"
