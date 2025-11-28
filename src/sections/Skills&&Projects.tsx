@@ -3,7 +3,7 @@ import OrbitWithProjects from '../components/ui/skills-orbit/OrbitWithProjectts'
 
 export default function Hero(){
     return(
-        <article id="skills-projects" className='container'>
+        <article id="skills-projects">
             <OrbitWithProjects/>
         </article>
     );

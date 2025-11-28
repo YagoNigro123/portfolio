@@ -114,7 +114,7 @@ export default function OrbitHeroWithProjects() {
 
 
   return (
-    <section className="hero-layout" ref={wrapperRef}>
+    <section className="hero-layout " ref={wrapperRef}>
       <div className="hero-layout-orbit">
         <div className="skills-orbit">
           <div className="orbit-ring" />
