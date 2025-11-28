@@ -23,7 +23,7 @@ export type OrbitItemConfig = {
 
 export const skillsConfig: OrbitItemConfig[] = [
   { id: "c",     angle: "270deg", icon: siC,          label: "C",              radius: "140px", bobDelay: "0s" },
-  { id: "db",    angle: "315deg", icon: siPostgresql, label: "Relational DBs", radius: "140px", bobDelay: "0.15s" },
+  { id: "db",    angle: "315deg", icon: siPostgresql, label: "Rel. DBs", radius: "140px", bobDelay: "0.15s" },
   { id: "go",    angle: "0deg",   icon: siGo,         label: "Go",             radius: "140px", bobDelay: "0.3s" },
   { id: "node",  angle: "45deg",  icon: siNodedotjs,  label: "Node.js",        radius: "140px", bobDelay: "0.45s" },
   { id: "express", angle: "90deg", icon: siExpress,   label: "Express",        radius: "140px", bobDelay: "0.6s" },
