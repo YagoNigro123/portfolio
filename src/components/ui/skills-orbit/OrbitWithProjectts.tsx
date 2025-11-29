@@ -25,7 +25,7 @@ const OrbitItem: React.FC<OrbitItemProps> = ({
   isHighlighted,
   highlightedProjectName,
 }) => {
-  const { angle, icon, label, radius, bobDelay } = config;
+  const { angle, icon: Icon, label, radius, bobDelay } = config;
 
   const style = {
     "--angle": angle,
@@ -43,14 +43,11 @@ const OrbitItem: React.FC<OrbitItemProps> = ({
 
       <div className="orbit-content">
         <div className="orbit-dot" />
-        <svg
+        <Icon
           className="orbit-icon"
-          viewBox="0 0 24 24"
+          aria-label={label || config.id}
           role="img"
-          aria-label={icon.title}
-        >
-          <path d={icon.path} fill="#ffffff" />
-        </svg>
+        />
         <span className="orbit-label">{label}</span>
 
         {isHighlighted && highlightedProjectName && (
@@ -104,7 +101,7 @@ export default function OrbitHeroWithProjects() {
   }, []);
 
   const handleProjectEnter = (project: Project) => {
-    setHighlightSkillIds(project.skills);   
+    setHighlightSkillIds(project.skills);
     setHighlightedProjectName(project.name);
   };
 
@@ -112,7 +109,6 @@ export default function OrbitHeroWithProjects() {
     setHighlightSkillIds([]);
     setHighlightedProjectName(null);
   };
-
 
   return (
     <section className="hero-layout" ref={wrapperRef}>
@@ -129,7 +125,6 @@ export default function OrbitHeroWithProjects() {
               highlightedProjectName={highlightedProjectName}
             />
           ))}
-
         </div>
       </div>
 
@@ -144,10 +139,10 @@ export default function OrbitHeroWithProjects() {
               onMouseLeave={handleProjectLeave}
             >
               <a
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-card-link"
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-card-link"
               >
                 <h3>{p.name}</h3>
                 <p>{p.description}</p>

@@ -27,7 +27,7 @@ const [tilt, setTilt] = useState({ rx: 0, ry: 0 });
     setTilt({ rx: 0, ry: 0 });
   };
   return (
-    <section className="about container" id="about-me">
+    <section className="about container" id="about">
       <header className="about-header">
         <div className="about-text">
           <p className="title">About me</p>

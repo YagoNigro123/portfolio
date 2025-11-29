@@ -86,11 +86,11 @@ body {
   .mobile-hamburger {
     position: fixed;
     right: 1%;
-    top: .5rem;
+    top: .4rem;
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: #000;
+    background: transparent;
     border: none;
     display: flex;
     align-items: center;
