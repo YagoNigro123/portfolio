@@ -5,12 +5,12 @@ import {
   siExpress,
   siJavascript,
   siCss,
-  siHtml5,
+  siGin,
   siReact,
   siDatabricks,
 } from "simple-icons/icons";
 
-export type SkillId = "go" | "node" | "express" | "js" | "css" | "html" | "react" | "db";
+export type SkillId = "go" | "node" | "express" | "js" | "css" | "html" | "react" | "db" | "gin";
 
 export type OrbitItemConfig = {
   id: SkillId;
@@ -21,13 +21,16 @@ export type OrbitItemConfig = {
   bobDelay: string;
 };
 
+const SCALE = "var(--orbit-radius-scale, 1)";
+
 export const skillsConfig: OrbitItemConfig[] = [
-  { id: "react",     angle: "270deg", icon: siReact,          label: "React",      radius: "140px", bobDelay: "0s" },
-  { id: "db",    angle: "315deg", icon: siDatabricks, label: "Rel. DBs",       radius: "140px", bobDelay: "0.15s" },
-  { id: "go",    angle: "0deg",   icon: siGo,         label: "Go",             radius: "140px", bobDelay: "0.3s" },
-  { id: "node",  angle: "45deg",  icon: siNodedotjs,  label: "Node.js",        radius: "140px", bobDelay: "0.45s" },
-  { id: "express", angle: "90deg", icon: siExpress,   label: "Express",        radius: "140px", bobDelay: "0.6s" },
-  { id: "js",    angle: "135deg", icon: siJavascript, label: "JavaScript",     radius: "140px", bobDelay: "0.75s" },
-  { id: "css",   angle: "180deg", icon: siCss,        label: "CSS",            radius: "140px", bobDelay: "0.9s" },
-  { id: "html",  angle: "225deg", icon: siHtml5,      label: "HTML",           radius: "140px", bobDelay: "1.05s" },
+  { id: "go",      angle: "270deg", icon: siGo,         label: "", radius: `calc(200px * ${SCALE})`, bobDelay: "0s" },
+  { id: "gin",     angle: "315deg", icon: siGin,        label: "", radius: `calc(180px * ${SCALE})`, bobDelay: "0.15s" },
+  { id: "express", angle: "0deg",   icon: siExpress,    label: "", radius: `calc(155px * ${SCALE})`, bobDelay: "0.3s" },
+  { id: "node",    angle: "45deg",  icon: siNodedotjs,  label: "", radius: `calc(150px * ${SCALE})`, bobDelay: "0.45s" },
+  { id: "react",   angle: "90deg",  icon: siReact,      label: "", radius: `calc(155px * ${SCALE})`, bobDelay: "0.6s" },
+  { id: "js",      angle: "135deg", icon: siJavascript, label: "", radius: `calc(180px * ${SCALE})`, bobDelay: "0.75s" },
+  { id: "css",     angle: "180deg", icon: siCss,        label: "", radius: `calc(200px * ${SCALE})`, bobDelay: "0.9s" },
+  { id: "db",      angle: "225deg", icon: siDatabricks, label: "", radius: `calc(210px * ${SCALE})`, bobDelay: "1.05s" },
 ];
+

@@ -1,3 +1,7 @@
+:root {
+  --orbit-radius-scale: 1;
+}
+
 .hero-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
@@ -6,7 +10,6 @@
   padding: 4rem clamp(2rem, 6vw, 5rem);
   min-height: 100vh;
   box-sizing: border-box;
-  
 }
 
 .hero-layout-orbit {
@@ -29,11 +32,10 @@
   transition: transform 0.25s ease-out;
 }
 
-
 .orbit-ring {
   position: absolute;
-  inset: 19%;
-  border-radius: 50%;
+  inset: 1%;
+  border-radius: 46%;
   border: 1px solid rgba(255, 255, 255, 0.22);
   opacity: 0.7;
   animation: orbit-spin 24s linear infinite;
@@ -42,8 +44,8 @@
 
 .orbit-ring-soft {
   position: absolute;
-  inset: 17%;
-  border-radius: 50%;
+  inset: 20%;
+  border-radius: 46%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
     0 0 24px rgba(160, 190, 255, 0.35),
@@ -71,16 +73,23 @@
   }
 }
 
+/* items en la órbita */
 .orbit-item {
+  z-index: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: rotate(var(--angle)) translateX(var(--radius))
     rotate(calc(-1 * var(--angle)));
   transform-origin: center;
+
+  /* offsets para la tarjeta del proyecto */
+  --tag-offset-x: 130px;
+  --tag-offset-y: 3px;
 }
 
 .orbit-content {
+  z-index: 200;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -100,43 +109,12 @@
   }
 }
 
-.orbit-connector {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1px;
-  height: 90px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.45),
-    rgba(255, 255, 255, 0)
-  );
-  transform: translate(-50%, -50%) translateY(-46px);
-  opacity: 0.9;
-  z-index: 1;
-}
-
-.orbit-dot {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 999px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.75) 0,
-    rgba(255, 255, 255, 0.15) 40%,
-    rgba(255, 255, 255, 0) 75%
-  );
-  filter: blur(1px);
-  z-index: 0;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-  opacity: 0.8;
-}
+/* icono y label */
 
 .orbit-icon {
   position: relative;
-  width: 32px;
-  height: 32px;
+  width: 2.6em;
+  height: 2.6em;
   z-index: 2;
   filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
   transition: transform 0.25s ease, filter 0.25s ease;
@@ -153,16 +131,19 @@
   opacity: 0.9;
 }
 
+/* tarjeta del proyecto */
+
 .orbit-project-tag {
   position: absolute;
-  top: -42px;
-  left: 110%;
+  top: calc(50% + var(--tag-offset-y));
+  left: 50%;
+  transform: translate(-50%, -50%)
+    translateX(var(--tag-offset-x));
   display: flex;
   align-items: center;
   gap: 6px;
-  z-index: 3;
+  z-index: 100;
 }
-
 
 .orbit-project-tag-arrow {
   width: 10px;
@@ -198,6 +179,8 @@
   color: rgba(255, 255, 255, 0.95);
 }
 
+/* hover */
+
 .orbit-item:hover .orbit-icon {
   transform: scale(1.12);
   filter:
@@ -205,43 +188,16 @@
     drop-shadow(0 0 18px rgba(160, 210, 255, 0.7));
 }
 
-.orbit-item:hover .orbit-dot {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
 .orbit-item:hover .orbit-label {
   color: #ffffff;
   opacity: 1;
 }
 
+/* responsive */
+
 @media (max-width: 960px) {
-  .hero-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.5rem;
-  }
-
-  .hero-layout-orbit {
-    justify-content: center;
-    order: -1;
-  }
-
-  .orbit-icon {
-    width: 26px;
-    height: 26px;
-  }
-
-  .orbit-dot {
-    width: 18px;
-    height: 18px;
-  }
-
-  .orbit-project-tag {
-    display: none;
-  }
-  
-  .orbit-project-tag-body {
-    min-width: 120px;
+  :root {
+    --orbit-radius-scale: 0.75;
   }
 
   .hero-layout {
@@ -264,12 +220,18 @@
     height: 26px;
   }
 
-  .orbit-dot {
-    width: 18px;
-    height: 18px;
+  .orbit-project-tag-body {
+    min-width: 120px;
   }
 
+  /* si no querés mostrar el tag en mobile, lo ocultamos */
   .orbit-project-tag {
     display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  :root {
+    --orbit-radius-scale: 0.55;
   }
 }

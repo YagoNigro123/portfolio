@@ -7,10 +7,17 @@
     "url": "https://starflux.dev"
   },
   {
-    "id": "proj-go-api",
+    "id": "after",
     "name": "Anterior porfolio",
     "description": "Aplicación completa con Node.js, Express, Handlebars y una API de contacto funcional impulsada por Nodemailer.",
     "skills": ["html","js","css","react","rel", "db"],
     "url": "https://github.com/YagoNigro123/Proyecto_Porfolio_Diplomatura"
+  },
+  {
+    "id": "proj-go-api",
+    "name": "Sistema Crud",
+    "description": " API REST para gestión de usuarios con registro/login, hash de contraseñas y CRUD completo.",
+    "skills": ["go","gin"],
+    "url": "#"
   }
 ]
