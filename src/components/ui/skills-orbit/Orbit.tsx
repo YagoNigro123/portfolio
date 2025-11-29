@@ -1,4 +1,3 @@
-// OrbitHero.tsx
 import React, { useEffect, useRef, type CSSProperties } from "react";
 import { skillsConfig, type SkillId, type OrbitItemConfig } from "./skillsConfig";
 import "./orbit.css";
@@ -19,7 +18,7 @@ const OrbitItem: React.FC<OrbitItemProps> = ({
   isHighlighted,
   highlightedProjectName,
 }) => {
-  const { angle, radius, icon, label, bobDelay } = config;
+  const { angle, radius, icon: Icon, label, bobDelay } = config;
 
   const style = {
     "--angle": angle,
@@ -37,14 +36,11 @@ const OrbitItem: React.FC<OrbitItemProps> = ({
 
       <div className="orbit-content">
         <div className="orbit-dot" />
-        <svg
+        <Icon
           className="orbit-icon"
-          viewBox="0 0 24 24"
+          aria-label={label || config.id}
           role="img"
-          aria-label={icon.title}
-        >
-          <path d={icon.path} fill="#ffffff" />
-        </svg>
+        />
         <span className="orbit-label">{label}</span>
 
         {isHighlighted && highlightedProjectName && (
