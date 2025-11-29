@@ -10,9 +10,9 @@ export default function Navbar() {
                     YN
                 </a>
                 <ul className='nav-list'>
-                    {/* <li className='nav-item'>
+                    <li className='nav-item'>
                         <a href="#about" className='nav-link'>About me</a>
-                    </li> */}
+                    </li>
                     <li className='nav-item'>
                         <a href="#skills-projects" className='nav-link'>Skills&Projects</a>
                     </li>
