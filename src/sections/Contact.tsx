@@ -35,6 +35,7 @@ function loadTurnstileScript() {
   script.setAttribute("data-turnstile-sdk", "true");
   document.head.appendChild(script);
 }
+const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
 export const Contact: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
@@ -46,10 +47,6 @@ export const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement | null>(null);
   const turnstileRef = useRef<HTMLDivElement | null>(null);
   const turnstileRenderedRef = useRef(false);
-
-  const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY as
-    | string
-    | undefined;
 
   const handleCaptcha = useCallback((token: string) => {
     setCaptchaToken(token);
