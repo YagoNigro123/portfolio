@@ -1,0 +1,19 @@
+.galaxy-divider {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+}
+
+.galaxy-divider.light {
+  background: linear-gradient(90deg, transparent, #ffffff55, transparent);
+}
+
+.galaxy-divider.glow {
+  background: #ffffff22;
+  box-shadow: 0 0 8px #ffffff22;
+}
+
+.galaxy-divider.dots {
+  border-bottom: 1px dotted #ffffff33;
+  height: 0;
+}
