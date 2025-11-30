@@ -4,7 +4,7 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer no-snap">
       <div className="footer-logos">
         <a
           href="https://www.linkedin.com/in/yagonigro/"

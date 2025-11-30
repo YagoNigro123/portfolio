@@ -6,7 +6,7 @@ import './styles/hero.css'
 export default function Hero(){
     const NAME = "Yago Nigro";
     return(
-        <article className='' id='hero'>
+        <section className='' id='hero'>
             <section className="hero">
                 <div className="hero-content">
                     <h1 className="hero-title">
@@ -21,6 +21,6 @@ export default function Hero(){
                     <p className="hero-subtitle">Back End Developer</p>
                 </div>
             </section>
-        </article>
+        </section>
     );
 };

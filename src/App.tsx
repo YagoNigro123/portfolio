@@ -20,6 +20,7 @@ function App() {
       <SkillsAndProjects />
       <GalaxyDivider/>
       <Contact />
+      <GalaxyDivider/>
       <Footer />
     </>
   )
