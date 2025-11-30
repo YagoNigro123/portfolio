@@ -87,7 +87,7 @@ export const Contact: React.FC = () => {
         return;
       }
 
-      if (!turnstileRenderedRef.current) {
+    if (!turnstileRenderedRef.current) {
         window.turnstile.render(turnstileRef.current, {
           sitekey: siteKey,
           callback: handleCaptcha,
