@@ -13,7 +13,7 @@ declare global {
   interface Window {
     turnstile?: {
       render: (
-        el: HTMLElement,
+        el: string | HTMLElement,
         options: {
           sitekey: string;
           callback?: (token: string) => void;
@@ -25,17 +25,30 @@ declare global {
   }
 }
 
-function loadTurnstileScript() {
-  if (document.querySelector('script[data-turnstile-sdk]')) return;
+function loadTurnstileScript(onLoad: () => void) {
+  if (document.querySelector('script[data-turnstile-sdk]')) {
+    // Si ya está cargado, llamamos directo
+    if (window.turnstile) onLoad();
+    return;
+  }
 
   const script = document.createElement("script");
   script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
   script.async = true;
   script.defer = true;
   script.setAttribute("data-turnstile-sdk", "true");
+  script.onload = () => {
+    console.log("Turnstile script cargado");
+    onLoad();
+  };
+  script.onerror = () => {
+    console.error("Error cargando Turnstile");
+  };
   document.head.appendChild(script);
 }
+
 const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+
 
 export const Contact: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
@@ -54,44 +67,50 @@ export const Contact: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!siteKey) {
-      console.warn("Falta VITE_TURNSTILE_SITE_KEY");
-      return;
-    }
+  if (!siteKey) {
+    console.warn("Falta VITE_TURNSTILE_SITE_KEY");
+    setErrors(prev => ({
+      ...prev,
+      captcha: "Error de configuración: falta la clave del captcha."
+    }));
+    return;
+  }
 
-    loadTurnstileScript();
+  loadTurnstileScript(() => {
+    if (!turnstileRef.current || !window.turnstile) {
+        console.error("Turnstile no disponible después de cargar el script");
+        setErrors(prev => ({
+          ...prev,
+          captcha:
+            "No se pudo cargar el captcha. Revisá bloqueadores de anuncios o la conexión."
+        }));
+        return;
+      }
 
-    const interval = setInterval(() => {
-      if (
-        window.turnstile &&
-        turnstileRef.current &&
-        !turnstileRenderedRef.current
-      ) {
+      if (!turnstileRenderedRef.current) {
         window.turnstile.render(turnstileRef.current, {
           sitekey: siteKey,
           callback: handleCaptcha,
           "error-callback": () => {
-            setErrors((prev) => ({
+            setErrors(prev => ({
               ...prev,
               captcha:
-                "Error al cargar el captcha. Revisá tu conexión o bloqueadores.",
+                "Error al cargar el captcha. Revisá tu conexión o bloqueadores."
             }));
           },
           "expired-callback": () => {
             setCaptchaToken(null);
-            setErrors((prev) => ({
+            setErrors(prev => ({
               ...prev,
-              captcha: "El captcha expiró, volvé a validarlo.",
+              captcha: "El captcha expiró, volvé a validarlo."
             }));
-          },
+          }
         });
         turnstileRenderedRef.current = true;
-        clearInterval(interval);
       }
-    }, 300);
+    });
+  }, [handleCaptcha]);
 
-    return () => clearInterval(interval);
-  }, [handleCaptcha, siteKey]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
