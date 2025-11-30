@@ -209,7 +209,7 @@ export const Contact: React.FC = () => {
               name="name"
               type="text"
               className="contact-input"
-              placeholder="Juan Pérez"
+              placeholder="Tu nombre"
               required
             />
           </div>
@@ -223,7 +223,7 @@ export const Contact: React.FC = () => {
               name="email"
               type="email"
               className="contact-input"
-              placeholder="tuemail@empresa.com"
+              placeholder="tuemail@mail.com"
               required
             />
             {errors.email && (
@@ -233,7 +233,7 @@ export const Contact: React.FC = () => {
 
           <div className="contact-field">
             <label htmlFor="linkedin" className="contact-label">
-              LinkedIn / Portfolio (opcional)
+              LinkedIn (opcional)
             </label>
             <input
               id="linkedin"
