@@ -5,6 +5,7 @@ import About from './sections/About.tsx'
 import SkillsAndProjects from './sections/Skills&&Projects.tsx'
 import { Contact } from "./sections/Contact";
 import Footer from './components/layout/Footer.tsx'
+import GalaxyDivider from './components/ui/GalaxyDivider.tsx'
 import './index.css'
 
 function App() {
@@ -13,8 +14,11 @@ function App() {
       <NavBar/>
       <MobileMenu/>
       <Hero />
+      <GalaxyDivider/>
       <About />
+      <GalaxyDivider/>
       <SkillsAndProjects />
+      <GalaxyDivider/>
       <Contact />
       <Footer />
     </>
