@@ -1,0 +1,247 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Work Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-behavior: smooth;
+ 
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff #02030a;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #000;
+  color: #f5f5f5;
+  overflow-x: hidden;
+
+  scroll-snap-type: y proximity;
+  overscroll-behavior-y: none;
+}
+
+/* Container genérico */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  background-color: transparent;
+}
+
+.title {
+  font-size: 0.75rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 0.9rem;
+}
+
+/*Secciones*/
+
+section {
+  width: 100%;
+  position: relative;
+  transition: transform 0.3s ease;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100vh;
+}
+
+.no-snap {
+  scroll-snap-align: none;
+  scroll-snap-stop: unset;
+  min-height: auto;
+}
+
+/*Header-Navbar*/
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #0e0e0e;
+  border-bottom: 1px solid #222;
+  z-index: 50;
+}
+
+.brand-name {
+  color: #f2f2f2;
+}
+
+.nav-link {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+.nav-link--cta {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-link--cta:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/*Scroll bar custom*/
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #02030f;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background-color: #ffffff;
+  border: 2px solid #02030f;
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.85),
+    0 0 18px rgba(255, 255, 255, 0.6);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #ffffff;
+}
+
+*::-webkit-scrollbar-button {
+  height: 12px;
+  background: #02030f;
+}
+
+*::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 5px 6px 5px;
+  border-style: solid;
+  border-color: transparent transparent #ffffff transparent;
+}
+
+*::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 6px 5px 0 5px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+
+/*MENÚ HAMBURGUESA MOBILE*/
+
+@media (max-width: 768px) {
+  .nav-list {
+    display: none !important;
+  }
+
+  .nav-link {
+    text-decoration: none;
+  }
+
+  .nav-item {
+    color: white;
+  }
+
+  .mobile-hamburger {
+    position: fixed;
+    right: 1%;
+    top: 0.4rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    cursor: pointer;
+  }
+
+  .mobile-hamburger span {
+    position: absolute;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    transition: 0.4s ease;
+  }
+
+  .mobile-hamburger span:nth-child(1) {
+    transform: translateY(-6px);
+  }
+
+  .mobile-hamburger span:nth-child(2) {
+    transform: translateY(6px);
+  }
+
+  .mobile-hamburger.open span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  .mobile-hamburger.open span:nth-child(2) {
+    transform: rotate(-45deg);
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.93);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-menu-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .mobile-menu-links a {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.4s ease;
+    text-decoration: none;
+  }
+
+  .mobile-menu-overlay.show .mobile-menu-links a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-hamburger,
+  .mobile-menu-overlay {
+    display: none;
+  }
+}
