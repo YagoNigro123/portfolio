@@ -38,8 +38,8 @@ export default function About() {
             }}
           >
             <img
-              src="/photo.png"
-              alt="Yo, en formato cachorro filosófico"
+              src="/ygnc.png"
+              alt="Yago Nigro"
               className="photo"
             />
           </figure>
